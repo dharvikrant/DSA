@@ -1,0 +1,67 @@
+#include<stdio.h>
+    int insert(int arr[],int k){
+        int pos,ele;
+        printf("Enter the position and element you want to enter:\n");
+        scanf("%d %d",&pos,&ele);
+        for(int i=k;i>=pos;--i){
+            arr[i]=arr[i-1];
+            if(i==pos){
+                arr[i]=ele;
+            }
+        }
+        printf("output:\n");
+        for(int i=0;i<k+1;i++){
+            printf("%d ",arr[i]);
+        }
+        
+    }
+    int s(int arr[],int k){
+        int g;
+        printf("Enter the number you want to search");
+        scanf("%d",&g);
+        for(int i=0;i<k;i++){
+            if(arr[i]==g){
+                printf("The index of %d is %d",g,i);
+            }
+        }
+    }
+    int del(int arr[],int k){
+        int y;
+        printf("Enter the position you want to remove:");
+        scanf("%d",&y);
+        for(int i=y-1;i<k;i++){
+            arr[i]=arr[i+1];
+        }
+        k--;
+        for(int i=0;i<k;i++){
+            printf("%d ",arr[i]);
+        }
+    }
+    int main(){
+        int k;
+        printf("Enter the size of the array:");
+        scanf("%d",&k);
+        int arr[k];
+        for(int i=0;i<k;i++){
+            scanf("%d",&arr[i]);
+        }
+        printf("enter 1 for insertion\n");
+        printf("Enter 2 for binary search\n");
+        printf("Enter 3 for deletion\n");
+        char n;
+        scanf(" %c",&n);
+        printf("\n");
+        switch(n){
+            case('1'):{
+            insert(arr,k);
+            break;}
+
+            case('2'):{
+            s(arr,k);
+            break;}
+
+            case('3'):{
+            del(arr,k);
+            break;}
+        }
+    }
